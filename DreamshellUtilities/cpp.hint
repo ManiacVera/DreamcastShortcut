@@ -1,0 +1,2 @@
+#define DLL_EXPORT __declspec(dllexport)
+#define DLL_EXPORT __declspec(dllimport)

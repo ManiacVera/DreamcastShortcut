@@ -1,0 +1,174 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Resources\dreamcast_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Firmware\IDE\1.bin" />
+    <None Remove="Firmware\IDE\10.bin" />
+    <None Remove="Firmware\IDE\11.bin" />
+    <None Remove="Firmware\IDE\12.bin" />
+    <None Remove="Firmware\IDE\13.bin" />
+    <None Remove="Firmware\IDE\14.bin" />
+    <None Remove="Firmware\IDE\2.bin" />
+    <None Remove="Firmware\IDE\3.bin" />
+    <None Remove="Firmware\IDE\4.bin" />
+    <None Remove="Firmware\IDE\5.bin" />
+    <None Remove="Firmware\IDE\6.bin" />
+    <None Remove="Firmware\IDE\7.bin" />
+    <None Remove="Firmware\IDE\8.bin" />
+    <None Remove="Firmware\IDE\9.bin" />
+    <None Remove="Firmware\IDE\readme.txt" />
+    <None Remove="Firmware\SD\readme.txt" />
+    <None Remove="GdiTools\gditools.exe" />
+    <None Remove="GdiTools\Pvr2Png.exe" />
+    <None Remove="GdiTools\python27.dll" />
+    <None Remove="Resources\DefaultImages.txt" />
+    <None Remove="Resources\DefaultShortcuts.txt" />
+    <None Remove="Resources\dreamcast_icon.ico" />
+    <None Remove="Resources\gd.png" />
+    <None Remove="Resources\IDE_DreamshellConfig.xlsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Firmware\IDE\1.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\10.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\11.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\12.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\13.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\14.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\2.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\3.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\4.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\5.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\6.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\7.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\8.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\9.bin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\IDE\readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Firmware\SD\readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GdiTools\gditools.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GdiTools\Pvr2Png.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GdiTools\python27.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\DefaultImages.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\DefaultShortcuts.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\IDE_DreamshellConfig.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\gd.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\dreamcast_icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTO\Service\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="i18n\MainWindow.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MainWindow.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="i18n\MainWindow.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MainWindow.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+    <Target Name="DreamshellCppDebug" AfterTargets="Build" Condition="'$(Configuration)' == 'Debug'">
+		<ItemGroup>
+			<DreamsellUtil Include="$(SolutionDir)x64\Debug\DreamshellUtilities.*" />
+		</ItemGroup>
+		
+		<Message Importance="high" Text="Copy dreamshell utilities" />
+	    <Copy SourceFiles="@(DreamsellUtil)" DestinationFolder="$(TargetDir)" ContinueOnError="false" />
+    </Target>
+
+	<Target Name="DreamshellCppRelease" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+		<ItemGroup>
+			<DreamsellUtil Include="$(SolutionDir)x64\Release\DreamshellUtilities.*" />
+		</ItemGroup>
+
+		<Message Importance="high" Text="Copy dreamshell utilities" />
+		<Copy SourceFiles="@(DreamsellUtil)" DestinationFolder="$(TargetDir)" ContinueOnError="false" />
+		<Copy SourceFiles="@(DreamsellUtil)" DestinationFolder="$(TargetDir)\Publish" ContinueOnError="false" />
+	</Target>
+
+	<!--<Target Name="DreamshellCppPublish" AfterTargets="Publish" Condition="'$(Configuration)' == 'Release'">
+		<ItemGroup>
+			<DreamsellUtil Include="$(SolutionDir)x64\Release\DreamshellUtilities.*" />
+		</ItemGroup>
+
+		<Message Importance="high" Text="Copy dreamshell utilities" />
+		<Copy SourceFiles="@(DreamsellUtil)" DestinationFolder="$(TargetDir)" ContinueOnError="false" />
+	</Target>-->
+
+</Project>

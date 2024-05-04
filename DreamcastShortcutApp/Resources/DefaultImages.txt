@@ -1,0 +1,7 @@
+﻿icon.png
+left.png
+left_hover.png
+logo.png
+right.png
+right_hover.png
+taskbar.png

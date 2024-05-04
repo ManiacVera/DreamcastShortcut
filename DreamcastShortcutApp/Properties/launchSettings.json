@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DreamcastShortcutApp": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}
